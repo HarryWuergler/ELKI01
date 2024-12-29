@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my.trycka Bestellformular</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            font-size: 14px;
+            margin: 5px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #5cb85c;
+            outline: none;
+        }
+        .hidden {
+            display: none;
+        }
+        .thank-you-message {
+            padding: 20px;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            color: #3c763d;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .form-header {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .instructions {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .add-product-btn-container {
+            margin-top: 10px; /* Button weiter nach oben verschoben */
+            display: flex;
+            justify-content: flex-start;
+        }
+        .add-product-btn {
+            padding: 5px 10px;
+            background-color: transparent;
+            color: #000; /* Schwarzer Text */
+            font-size: 12px;
+            border: 1px solid #ff9800;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none; /* Keine Unterstreichung */
+        }
+        .add-product-btn:hover {
+            background-color: #ffeb3b;
+        }
+        .product-item {
+            margin-bottom: 20px;
+        }
+        .remove-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;b
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .remove-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .shipping-method {
+            background-color: white;
+            color: #333; /* Textfarbe */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        /* Standard-Stil für alle select-Elemente */
+        select {
+            background-color: white; /* Hintergrundfarbe */
+            color: #333; /* Textfarbe */
+            border: 1px solid #ccc; /* Rahmen */
+            border-radius: 5px; /* Abgerundete Ecken */
+            padding: 10px;
+            font-size: 14px;
+            appearance: none; /* Entfernt den Standardstil */
+            -webkit-appearance: none; /* Für Safari */
+            -moz-appearance: none; /* Für Firefox */
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z" fill="%23333"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            padding-right: 30px; /* Platz für den Pfeil */
+        }
+
+        /* Stil für Versandart-Select */
+        /* Stil für Versandart-Select */
+        select.no-background {
+            background-color: transparent; /* Hintergrund transparent */
+            color: #333; /* Textfarbe */
+            border: 1px solid #ccc; /* Rahmen */
+            border-radius: 5px; /* Abgerundete Ecken */
+            padding: 10px;
+            font-size: 14px;
+            appearance: none; /* Entfernt Standard-Browser-Stile */
+            -webkit-appearance: none; /* Safari */
+            -moz-appearance: none; /* Firefox */
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z" fill="%23333"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center; /* Position des Pfeils */
+            background-size: 12px; /* Größe des Pfeils */
+            padding-right: 30px; /* Platz für den Pfeil */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div style="display: flex; align-items: center;">
+            <img src="Logo.png" alt="ma.trycka Logo" width="60" height="60">
+            <head style="margin-left: 10px; font-size: 1.5em;">ma.trycka</head>
+        </div>
+        
+        <h1>Anmeldeformular für's ELKI Mönchaltorf</h1>
+        
+      
+        <div class="instructions">
+            <p>Bitte geben Sie uns den Vornamen / Namen / Geburtstag vom ELKI Kind bekannt</p>
+        </div>
+
+        <form id="orderForm">
+            <!-- ELKI1 Vorname -->
+            <label for="Kind1Vorname">Vorname vom ELKI</label>
+            <input type="text" id="Kind1Vorname" name="Kind1Vorname" required placeholder="Vorname ELKI">
+
+            <!-- ELKI1 Name -->
+            <label for="Kind1Name">Name vom ELKI</label>
+            <input type="text" id="Kind1Name" name="Kind1Name" required placeholder="Name ELKI">
+			
+            <!-- ELKI1 Geburtstag -->
+            <label for="Kind1Geburtstag">Geburtstag vom ELKI</label>
+            <input type="text" id="Kind1Name" name="Kind1Geburtstag" required placeholder="Geburtstag ELKI">
+
+            <!-- Kommentar -->
+            <label for="comment">Bemerkungen (optional)</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="Ihr Kommentar"></textarea>
+           
+
+        <div class="instructions">
+            <p>Kontaktdaten der Betreuungsperson</p>
+        </div>
+
+            <!-- Adresse -->
+            <label for="street">Straße *</label>
+            <input type="text" id="street" name="street" required placeholder="Musterstr. Nr">
+
+            <label for="zipcode">PLZ/Ort *</label>
+            <input type="text" id="zipcode" name="zipcode" required placeholder="Postleizahl Ort">
+
+            <!-- Telefonnummer -->
+            <label for="phone">Handynummer *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="077 000 00 00">
+
+            <!-- E-Mail-Adresse -->
+            <label for="email">Mailadresse *</label>
+            <input type="email" id="email" name="email" required placeholder="muster@mann.ch">
+
+            <br>
+
+            <!-- Kommentar -->
+            <label for="comment">Kommentar (optional)</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="Ihr Kommentar"></textarea>
+
+            <!-- Absenden -->
+            <button type="button" onclick="submitForm()">Jetzt Bestellen.</button>
+        <script>
+
+        
+            function submitForm() {
+                // Submit the form
+                harry.wuergler@bluewin.ch; // Deine Public Key
+                const form = document.getElementById('orderForm');
+
+                const products = [];
+
+                for (let i = 1; i < number; i++) {
+                    if (!form["productChoice" + i]) {
+                        continue;
+                    }
+
+                    products.push({
+                        choice: form["productChoice" + i].value,
+                        color: form["productColor" + i].value,
+                        quantity: form["productQuantity" + i].value
+                    });
+                }
+                }).then(function(response) {
+                    console.log('Erfolgreich gesendet:', response);
+
+                    // Formular zurücksetzen
+                    form.reset();
+
+                    // Produkte zurücksetzen (dynamische Felder entfernen)
+                    const productsContainer = document.getElementById('productsContainer');
+                    productsContainer.innerHTML = '';  // Entfernt alle Produktfelder
+
+                    // Rabattcode-Feld zurücksetzen
+                    const discountCodeField = document.getElementById('discountCode');
+                    discountCodeField.value = '';  // Entfernt den Rabattcode
+
+                    // Preisanzeige und zusätzliche Felder verstecken
+                    document.getElementById('discountPrices').classList.add('hidden');
+                    document.getElementById('paymentMethodField').classList.add('hidden');
+                    document.getElementById('teamLeadField').classList.add('hidden');
+
+                    // Vorherige Nachricht entfernen, falls vorhanden (außer Dankesnachricht)
+                    const existingMessage = document.querySelector('.thank-you-message');
+                    if (existingMessage) {
+                        // Dankesnachricht bleibt
+                        return;
+                    }
+
+                    // Danke-Nachricht erstellen und anzeigen
+                    const thankYouMessage = document.createElement('div');
+                    thankYouMessage.className = 'thank-you-message';
+                    thankYouMessage.innerHTML = `
+                        <strong>Vielen Dank für Ihre Anmeldung. Wir freuen uns.</strong><br><br>
+                    `;
+                    form.parentNode.appendChild(thankYouMessage);
+                }, function(error) {
+                    console.log('Fehler beim Senden:', error);
+                    alert('Es gab einen Fehler beim Senden der Bestellung. Bitte versuche es später erneut.');
+                });
+            }
+
+
+
+                let colorsToDisplay = defaultColors;
+
+                // Wenn der Rabattcode stimmt und das Produkt "Thermomix Schlüsselanhänger" ist
+                if (isDiscountActive && product === 'Thermomix Schlüsselanhänger') {
+                    colorsToDisplay = [...defaultColors, ...extraColors]; // Normale und Sonderfarben kombinieren
+                }
+
+                // Dropdown-Feld leeren
+                selectElement.innerHTML = '';
+
+                // Optionen hinzufügen
+                colorsToDisplay.forEach(color => {
+                    const option = document.createElement('option');
+                    option.value = color;
+                    option.textContent = color;
+                    selectElement.appendChild(option);
+                });
+            }
+
+
+        </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const produktAuswahl = document.getElementById('produktAuswahl');
+          const farbeAuswahl = document.getElementById('farbeAuswahl');
+      
+          // Speichern Sie alle ursprünglichen Farboptionen
+          const alleFarben = Array.from(farbeAuswahl.options).map(option => option.cloneNode(true));
+      
+          produktAuswahl.addEventListener('change', function() {
+            const ausgewähltesProdukt = this.value;
+      
+            // Leeren Sie die aktuellen Farboptionen
+            farbeAuswahl.innerHTML = '';
+      
+            if (ausgewähltesProdukt === 'batterien_harasse_aa' || ausgewähltesProdukt === 'batterien_harasse_aaa') {
+              // Definierte Farben für die ausgewählten Produkte
+              const erlaubteFarben = ['grau_pla', 'schwarz1_pla', 'schwarz2_pla', 'weiss_pla'];
+              alleFarben.forEach(option => {
+                if (erlaubteFarben.includes(option.value)) {
+                  farbeAuswahl.appendChild(option.cloneNode(true));
+                }
+              });
+            } else {
+              // Alle Farben anzeigen für andere Produkte
+              alleFarben.forEach(option => {
+                farbeAuswahl.appendChild(option.cloneNode(true));
+              });
+            }
+      
+            // Optional: Setzen Sie die Farbauswahl zurück
+            farbeAuswahl.selectedIndex = 0;
+          });
+        });
+      </script>
+      
+</body>
+</html>
