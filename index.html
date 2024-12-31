@@ -193,35 +193,43 @@
             <label for="Kind1Geburtstag">Geburtstag vom ELKI</label>
             <input type="text" id="Kind1Name" name="Kind1Geburtstag" required placeholder="Geburtstag ELKI">
 
-            <!-- Kommentar -->
+            <!-- ELKI1 Bemerkung -->
             <label for="comment">Bemerkungen (optional)</label>
-            <textarea id="comment" name="comment" rows="4" placeholder="Ihr Kommentar"></textarea>
+            <textarea id="comment" name="comment" rows="4" placeholder="Bemerkungen / Nachricht"></textarea>
            
 
         <div class="instructions">
             <p>Kontaktdaten der Betreuungsperson</p>
         </div>
 
-            <!-- Adresse -->
-            <label for="street">Strasse *</label>
-            <input type="text" id="street" name="street" required placeholder="Musterstr. Nr">
+			<!-- Kontakt Vorname -->
+            <label for="KontaktVorname">Vorname *</label>
+            <input type="text" id="KontaktVorname" name="KontaktVorname" required placeholder="Vorname">
 
-            <label for="zipcode">PLZ/Ort *</label>
-            <input type="text" id="zipcode" name="zipcode" required placeholder="Postleizahl Ort">
+            <!-- Kontakt Name -->
+            <label for="KontaktName">Name *</label>
+            <input type="text" id="KontaktName" name="KontaktName" required placeholder="Name">
 
-            <!-- Telefonnummer -->
-            <label for="phone">Handynummer *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="077 000 00 00">
+            <!-- Kontakt Adresse -->
+            <label for="KontaktStrasse">Strasse *</label>
+            <input type="text" id="KontaktStrasse" name="KontaktStrasse" required placeholder="Strasse / Nummer">
+			
+            <label for="KontaktPLZ-Ort">PLZ / Ort *</label>
+            <input type="text" id="KontaktPLZ-Ort" name="KontaktPLZ-Ort" required placeholder="PLZ / Ort">
 
-            <!-- E-Mail-Adresse -->
-            <label for="email">Mailadresse *</label>
-            <input type="email" id="email" name="email" required placeholder="muster@mann.ch">
+            <!-- Kontakt Telefonnummer -->
+            <label for="phone">Natelnummer *</label>
+            <input type="tel" id="KontaktNatel" name="KontaktNatel" required placeholder="Natelnummer">
+
+            <!-- Kontakt Mail -->
+            <label for="email">KontaktMail *</label>
+            <input type="email" id="KontaktMail" name="KontaktMail" required placeholder="Mailadresse">
 
             <br>
 
-            <!-- Kommentar -->
-            <label for="comment">Kommentar (optional)</label>
-            <textarea id="comment" name="comment" rows="4" placeholder="Ihr Kommentar"></textarea>
+            <!-- Kontakt Bemerkung -->
+            <label for="comment">Bemerkungen (optional)</label>
+            <textarea id="KontaktBemerkung" name="KontaktBemerkung" rows="4" placeholder="Bemerkungen / Nachricht"></textarea>
 
             <!-- Absenden -->
             <button type="button" onclick="submitForm()">senden</button>
