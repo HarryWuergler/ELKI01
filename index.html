@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELKI Anmeldeformular</title>
+    <title>my.trycka Bestellformular</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -78,7 +78,7 @@
         .instructions {
             background-color: #f1f1f1;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 2px;
             margin-bottom: 20px;
         }
         .add-product-btn-container {
@@ -182,16 +182,16 @@
 
         <form id="orderForm">
             <!-- ELKI1 Vorname -->
-            <label for="Kind1Vorname">Vorname vom ELKI</label>
-            <input type="text" id="Kind1Vorname" name="Kind1Vorname" required placeholder="Vorname ELKI">
+            <label for="Kind1Vorname">Vorname vom Kind</label>
+            <input type="text" id="Kind1Vorname" name="Kind1Vorname" required placeholder="Vorname Kind">
 
             <!-- ELKI1 Name -->
-            <label for="Kind1Name">Name vom ELKI</label>
-            <input type="text" id="Kind1Name" name="Kind1Name" required placeholder="Name ELKI">
+            <label for="Kind1Name">Name vom Kind</label>
+            <input type="text" id="Kind1Name" name="Kind1Name" required placeholder="Name Kind">
 			
             <!-- ELKI1 Geburtstag -->
-            <label for="Kind1Geburtstag">Geburtstag vom ELKI</label>
-            <input type="text" id="Kind1Name" name="Kind1Geburtstag" required placeholder="Geburtstag ELKI">
+            <label for="Kind1Geburtstag">Geburtstag vom Kind</label>
+            <input type="text" id="Kind1Name" name="Kind1Geburtstag" required placeholder="Geburtstag Kind">
 
             <!-- ELKI1 Bemerkung -->
             <label for="comment">Bemerkungen (optional)</label>
@@ -222,7 +222,7 @@
             <input type="tel" id="KontaktNatel" name="KontaktNatel" required placeholder="Natelnummer">
 
             <!-- Kontakt Mail -->
-            <label for="email">KontaktMail *</label>
+            <label for="email">Mail *</label>
             <input type="email" id="KontaktMail" name="KontaktMail" required placeholder="Mailadresse">
 
             <br>
@@ -230,6 +230,10 @@
             <!-- Kontakt Bemerkung -->
             <label for="comment">Bemerkungen (optional)</label>
             <textarea id="KontaktBemerkung" name="KontaktBemerkung" rows="4" placeholder="Bemerkungen / Nachricht"></textarea>
+
+        <div class="instructions">
+            <p>Die eingegebenen Daten werden nur für die Beantwortung und die administrative Anmeldung im Zusammenhang mit dem ELKI verwendet.</p>
+        </div>
 
             <!-- Absenden -->
             <button type="button" onclick="submitForm()">senden</button>
